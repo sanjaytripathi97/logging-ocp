@@ -5,15 +5,22 @@ install logging operator, loki operator and cluster observability operator
 
 
 $ oc project openshift-logging
+
 $ oc adm policy add-cluster-role-to-user collect-application-logs -z collector
+
 $ oc adm policy add-cluster-role-to-user collect-audit-logs -z collector
+
 $ oc adm policy add-cluster-role-to-user collect-infrastructure-logs -z collector
+
 $ oc adm policy add-cluster-role-to-user logging-collector-logs-writer -z collector
 
 
 $ oc -n openshift-logging create serviceaccount collector
+
 $ oc create clusterrolebinding collect-application-logs --clusterrole=collect-application-logs --serviceaccount openshift-logging:collector
+
 $ oc create clusterrolebinding collect-infrastructure-logs --clusterrole=collect-infrastructure-logs --serviceaccount openshift-logging:collector
+
 $ oc create clusterrolebinding collect-audit-logs --clusterrole=collect-audit-logs --serviceaccount openshift-logging:collector
 
 
