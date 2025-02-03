@@ -24,6 +24,7 @@ $ oc create clusterrolebinding collect-audit-logs --clusterrole=collect-audit-lo
 
 
 ### AWS secret example:-
+```
 apiVersion: v1
 kind: Secret
 metadata:
@@ -35,6 +36,7 @@ stringData:
   bucketnames: s3-bucket-name
   endpoint: https://s3.eu-central-1.amazonaws.com
   region: eu-central-1
+```
 
 ### Azure secret example :  // azure blob storage needs to be created.
 oc create secret generic logging-loki-azure --from-literal=container="<azure_container_name>" --from-literal=environment="<azure_environment>" --from-literal=account_name="<azure_account_name>" --from-literal=account_key="<azure_account_key>"
